@@ -13,8 +13,13 @@ class Tabs extends TabMenu
     protected function navigations(): iterable
     {
         return [
-            Menu::make(__('Statuses'))->route(StatusEnum::VIEW),
-            Menu::make(__('Groups'))->route(StatusEnum::GROUP_VIEW),
+            Menu::make(__('Statuses'))
+                ->route(StatusEnum::VIEW)
+                ->active(StatusEnum::prefixStatus . '*'),
+
+            Menu::make(__('Groups'))
+                ->route(StatusEnum::GROUP_VIEW)
+                ->active(StatusEnum::prefixGroup . '*'),
         ];
     }
 }

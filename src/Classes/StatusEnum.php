@@ -8,14 +8,16 @@ enum StatusEnum
 {
     const author = 'mr_vaco';
     const prefix = self::author . '.statuses';
+    const prefixStatus = self::prefix . '.status';
+    const prefixGroup = self::prefix . '.group';
 
-    const VIEW = self::prefix . '.status.view';
-    const CREATE = self::prefix . '.status.create';
-    const UPDATE = self::prefix . '.status.update';
-    const DELETE = self::prefix . '.status.delete';
+    const VIEW = self::prefixStatus . '.view';
+    const CREATE = self::prefixStatus . '.create';
+    const UPDATE = self::prefixStatus . '.update';
+    const DELETE = self::prefixStatus . '.delete';
 
-    const GROUP_VIEW = self::prefix . '.group.view';
-    const GROUP_CREATE = self::prefix . '.group.create';
-    const GROUP_UPDATE = self::prefix . '.group.update';
-    const GROUP_DELETE = self::prefix . '.group.delete';
+    const GROUP_VIEW = self::prefixGroup . '.view';
+    const GROUP_CREATE = self::prefixGroup . '.create';
+    const GROUP_UPDATE = self::prefixGroup . '.update';
+    const GROUP_DELETE = self::prefixGroup . '.delete';
 }
