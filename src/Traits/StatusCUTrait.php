@@ -44,7 +44,7 @@ trait StatusCUTrait
             Button::make(__('Save'))
                 ->type(Color::PRIMARY)
                 ->icon('bs.check-circle')
-                ->canSee(auth()->user()->hasAccess(StatusEnum::CREATE))
+                ->canSee($this->status->exists && auth()->user()->hasAccess(StatusEnum::UPDATE))
                 ->method('save'),
 
             Link::make(__('Cancel'))
@@ -75,9 +75,7 @@ trait StatusCUTrait
             ],
         ]);
 
-        $status
-            ->fill($request->collect('status')->toArray())
-            ->save();
+        $status->fill($request->collect('status')->toArray())->save();
 
         $groups = $request->input('status.group');
         $status->group()->detach();

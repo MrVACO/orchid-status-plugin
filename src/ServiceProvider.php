@@ -60,7 +60,11 @@ class ServiceProvider extends OrchidServiceProvider
                 ->addPermission(StatusEnum::VIEW, __('View statuses'))
                 ->addPermission(StatusEnum::CREATE, __('Create status'))
                 ->addPermission(StatusEnum::UPDATE, __('Update status'))
-                ->addPermission(StatusEnum::DELETE, __('Delete status')),
+                ->addPermission(StatusEnum::DELETE, __('Delete status'))
+                ->addPermission(StatusEnum::GROUP_VIEW, __('View groups'))
+                ->addPermission(StatusEnum::GROUP_CREATE, __('Create group'))
+                ->addPermission(StatusEnum::GROUP_UPDATE, __('Update group'))
+                ->addPermission(StatusEnum::GROUP_DELETE, __('Delete group')),
         ];
     }
 }

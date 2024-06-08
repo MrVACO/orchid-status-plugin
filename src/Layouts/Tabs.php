@@ -14,6 +14,7 @@ class Tabs extends TabMenu
     {
         return [
             Menu::make(__('Statuses'))->route(StatusEnum::VIEW),
+            Menu::make(__('Groups'))->route(StatusEnum::GROUP_VIEW),
         ];
     }
 }
