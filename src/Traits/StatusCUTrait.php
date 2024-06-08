@@ -7,6 +7,7 @@ namespace MrVaco\Status\Traits;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use MrVaco\Status\Classes\StatusEnum;
+use MrVaco\Status\Events\StatusUpdatedEvent;
 use MrVaco\Status\Layouts\StatusCURows;
 use MrVaco\Status\Models\Status;
 use Orchid\Screen\Actions\Button;
@@ -80,6 +81,8 @@ trait StatusCUTrait
         $groups = $request->input('status.group');
         $status->group()->detach();
         $status->group()->attach($groups);
+
+        StatusUpdatedEvent::dispatch($status);
 
         Toast::success(__('Saved'));
     }

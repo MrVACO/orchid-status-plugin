@@ -4,8 +4,11 @@ declare(strict_types = 1);
 
 namespace MrVaco\Status;
 
+use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\View;
 use MrVaco\Status\Classes\StatusEnum;
+use MrVaco\Status\Events\StatusUpdatedEvent;
+use MrVaco\Status\Listeners\StatusUpdatedListener;
 use Orchid\Platform\Dashboard;
 use Orchid\Platform\ItemPermission;
 use Orchid\Platform\OrchidServiceProvider;
@@ -21,6 +24,8 @@ class ServiceProvider extends OrchidServiceProvider
         $this->router();
 
         View::addNamespace(StatusEnum::prefix, __DIR__ . '/../resources/views');
+
+        Event::listen(StatusUpdatedEvent::class, StatusUpdatedListener::class);
     }
 
     public function menu(): array
