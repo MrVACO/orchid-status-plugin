@@ -37,17 +37,17 @@ class StatusTable extends Table
                     return $group->name;
                 })->implode('<br />')),
 
-            TD::make('active', __('Active by default'))
+            TD::make('active', __('Default Active'))
                 ->usingComponent(Boolean::class)
                 ->width('150px')
                 ->alignCenter(),
 
-            TD::make('disabled', __('Disabled by default'))
+            TD::make('disabled', __('Default Disabled'))
                 ->usingComponent(Boolean::class)
                 ->width('150px')
                 ->alignCenter(),
 
-            TD::make('draft', __('Draft by default'))
+            TD::make('draft', __('Default Draft'))
                 ->usingComponent(Boolean::class)
                 ->width('150px')
                 ->alignCenter(),
@@ -76,7 +76,7 @@ class StatusTable extends Table
                         Button::make(__('Delete'))
                             ->icon('bs.trash3')
                             ->canSee(auth()->user()->hasAccess(StatusEnum::DELETE))
-                            ->confirm(__('Confirm status deletion'))
+                            ->confirm(__('The status will be deleted without the possibility of recovery'))
                             ->method('remove', ['id' => $status->id]),
                     ])),
         ];

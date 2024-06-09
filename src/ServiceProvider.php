@@ -5,6 +5,7 @@ declare(strict_types = 1);
 namespace MrVaco\Status;
 
 use Illuminate\Support\Facades\Event;
+use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\View;
 use MrVaco\Status\Classes\StatusEnum;
 use MrVaco\Status\Events\StatusUpdatedEvent;
@@ -18,6 +19,8 @@ class ServiceProvider extends OrchidServiceProvider
 {
     public function boot(Dashboard $dashboard): void
     {
+        Lang::addJsonPath(__DIR__ . '/../resources/lang');
+
         parent::boot($dashboard);
 
         $this->publish();

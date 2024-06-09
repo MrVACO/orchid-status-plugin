@@ -28,8 +28,8 @@ trait GroupCUTrait
     public function name(): ?string
     {
         return $this->group->exists
-            ? __(StatusEnum::author . '::status.group_edit :name', ['name' => $this->group->name])
-            : __(StatusEnum::author . '::status.group_add');
+            ? __('Update :name', ['name' => $this->group->name])
+            : __('Create group');
     }
 
     public function commandBar(): iterable
@@ -55,7 +55,7 @@ trait GroupCUTrait
                 ->type(Color::DANGER)
                 ->icon('bs.trash3-fill')
                 ->canSee($this->group->exists && auth()->user()->hasAccess(StatusEnum::GROUP_DELETE))
-                ->confirm(__('Confirm status deletion'))
+                ->confirm(__('The group will be deleted without the possibility of recovery'))
                 ->method('remove'),
         ];
     }

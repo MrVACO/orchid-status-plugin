@@ -58,7 +58,7 @@ class GroupTable extends Table
                         Button::make(__('Delete'))
                             ->icon('bs.trash3')
                             ->canSee(auth()->user()->hasAccess(StatusEnum::GROUP_DELETE))
-                            ->confirm(__('Confirm status deletion'))
+                            ->confirm(__('The group will be deleted without the possibility of recovery'))
                             ->method('remove', ['id' => $group->id]),
                     ])),
         ];

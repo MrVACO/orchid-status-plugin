@@ -56,7 +56,7 @@ trait StatusCUTrait
                 ->type(Color::DANGER)
                 ->icon('bs.trash3-fill')
                 ->canSee($this->status->exists && auth()->user()->hasAccess(StatusEnum::DELETE))
-                ->confirm(__('Confirm status deletion'))
+                ->confirm(__('The status will be deleted without the possibility of recovery'))
                 ->method('remove'),
         ];
     }

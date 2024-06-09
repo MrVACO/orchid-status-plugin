@@ -26,7 +26,7 @@ class StatusCURows extends Rows
                     ->horizontal(),
 
                 Switcher::make('status.active')
-                    ->title('Active by default')
+                    ->title('Default Active')
                     ->sendTrueOrFalse()
                     ->horizontal(),
             ]),
@@ -39,7 +39,7 @@ class StatusCURows extends Rows
                     ->horizontal(),
 
                 Switcher::make('status.disabled')
-                    ->title('Disabled by default')
+                    ->title('Default Disabled')
                     ->sendTrueOrFalse()
                     ->horizontal(),
             ]),
@@ -52,7 +52,7 @@ class StatusCURows extends Rows
                     ->horizontal(),
 
                 Switcher::make('status.draft')
-                    ->title('Draft by default')
+                    ->title('Default Draft')
                     ->sendTrueOrFalse()
                     ->horizontal(),
             ]),
