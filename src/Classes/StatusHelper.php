@@ -39,4 +39,9 @@ class StatusHelper
     {
         return Group::query()->where('slug', $slug)->firstOrFail();
     }
+
+    static function BY_ID(int $id): Status
+    {
+        return Status::query()->where('id', $id)->firstOrFail();
+    }
 }
